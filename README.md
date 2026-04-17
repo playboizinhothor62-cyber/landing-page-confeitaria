@@ -17,6 +17,6 @@ Este é um projeto de Landing Page desenvolvido para a confeitaria **Cereja & Ba
 - **Google Fonts**: Tipografia selecionada (*Playfair Display* e *Montserrat*).
 
 ## 🔗 Link do Projeto
-Você pode visualizar o site ao vivo aqui: [COLOQUE SEU LINK DO GITHUB PAGES AQUI]
+Você pode visualizar o site ao vivo aqui: https://playboizinhothor62-cyber.github.io/landing-page-confeitaria/
 
 
