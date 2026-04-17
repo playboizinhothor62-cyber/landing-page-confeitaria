@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cereja e Baunilha | Confeitaria Artesanal</title>
+    
+    <!-- Fontes Elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS do AOS (Animações de Fade-in) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cor-cereja: #800020;
+            --cor-baunilha: #FDF5E6;
+            --cor-detalhe: #D4AF37;
+            --cor-texto: #4A4A4A;
+            --cor-fundo: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: white;
+            color: var(--cor-cereja);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--cor-cereja);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li { margin-left: 20px; }
+
+        .nav-links a {
+            color: var(--cor-texto);
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.3s;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover { color: var(--cor-cereja); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), 
+                        url('https://images.unsplash.com/photo-1535259012331-3bc052716444?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--cor-cereja);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        .btn-cta {
+            background-color: var(--cor-cereja);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 0px; 
+            font-weight: 600;
+            transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .btn-cta:hover { 
+            background-color: #5a0016; 
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(128,0,32,0.3);
+        }
+
+        /* --- PRODUTOS --- */
+        .produtos {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .produtos h2 {
+            font-size: 3rem;
+            color: var(--cor-cereja);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .produtos h2::after {
+            content: '';
+            width: 60px;
+            height: 2px;
+            background: var(--cor-detalhe);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .card {
+            background: white;
+            overflow: hidden;
+            transition: 0.4s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .card:hover { 
+            transform: translateY(-10px); 
+            border-bottom: 3px solid var(--cor-cereja);
+        }
+
+        .card img { width: 100%; height: 400px; object-fit: cover; }
+
+        .card-info { padding: 30px 10px; }
+
+        .card-info h3 {
+            margin-bottom: 15px;
+            color: var(--cor-cereja);
+            font-size: 1.6rem;
+        }
+
+        /* --- GALERIA --- */
+        .galeria {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .galeria h2 {
+            font-size: 3rem;
+            color: var(--cor-cereja);
+            margin-bottom: 50px;
+        }
+
+        .grid-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.7);
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; transition: 0.5s;
+            color: white; font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            background: rgba(128, 0, 32, 0.4);
+        }
+
+        .galeria-item:hover .galeria-overlay { opacity: 1; }
+
+        /* --- FEEDBACKS (Depoimentos) --- */
+        .feedbacks {
+            padding: 100px 20px;
+            background-color: var(--cor-baunilha);
+            text-align: center;
+        }
+
+        .feedbacks h2 {
+            font-size: 3rem;
+            color: var(--cor-cereja);
+            margin-bottom: 50px;
+        }
+
+        .grid-feedbacks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feedback-card {
+            background: white;
+            padding: 30px;
+            border-radius: 0px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .feedback-card:hover { transform: translateY(-5px); }
+
+        .estrelas {
+            color: var(--cor-detalhe);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .feedback-texto {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .feedback-autor {
+            font-weight: 600;
+            color: var(--cor-cereja);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- PAGAMENTOS --- */
+        .pagamentos {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .pagamentos h3 {
+            color: var(--cor-cereja);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .metodos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .metodo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border: 1px solid #eee;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--cor-texto);
+            transition: 0.3s;
+        }
+
+        .metodo:hover {
+            border-color: var(--cor-cereja);
+            color: var(--cor-cereja);
+        }
+
+        /* --- SOBRE --- */
+        .sobre {
+            background-color: var(--cor-baunilha);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .sobre-conteudo {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .sobre-conteudo h2 {
+            font-size: 3rem;
+            color: var(--cor-cereja);
+            margin-bottom: 30px;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background-color: var(--cor-cereja);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-container iframe {
+            width: 100%; height: 250px;
+            border: 0; filter: grayscale(1) invert(1); 
+        }
+
+        /* --- WHATSAPP --- */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 30px;
+            z-index: 2000;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo">Cereja & Baunilha</a>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#produtos">Cardápio</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#feedbacks">Depoimentos</a></li>
+                <li><a href="#sobre">A Marca</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <h1 data-aos="fade-down" data-aos-duration="1500">A arte de adoçar <br>momentos.</h1>
+        <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Confeitaria artesanal feita com paixão e ingredientes selecionados.</p>
+        <a href="#produtos" class="btn-cta" data-aos="zoom-in" data-aos-delay="600">Descobrir Delícias</a>
+    </section>
+
+    <!-- SEÇÃO DE PRODUTOS -->
+    <section id="produtos" class="produtos">
+        <h2 data-aos="fade-up">Nossa Seleção</h2>
+        <div class="grid-produtos">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <img src="foto-chocolate.jpg" alt="Chocolate Cremoso">
+                <div class="card-info">
+                    <h3>Chocolate Belga</h3>
+                    <p>A cremosidade perfeita com toque de raspas de chocolate.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <img src="foto-morangos.jpg" alt="Morangos Glaceados">
+                <div class="card-info">
+                    <h3>Morangos Gourmet</h3>
+                    <p>Frutas frescas envoltas em uma cobertura brilhante e irresistível.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <img src="foto-oreo.jpg" alt="Doce de Oreo">
+                <div class="card-info">
+                    <h3>Sinfonia de Oreo</h3>
+                    <p>O equilíbrio perfeito entre o crocante do biscoito e a leveza do creme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="galeria">
+        <h2 data-aos="fade-right">Galeria de Encantos</h2>
+        <p data-aos="fade-right" data-aos-delay="200" style="margin-bottom: 50px; font-style: italic;">Um vislumbre do que preparamos para você.</p>
+        <div class="grid-galeria">
+            <div class="galeria-item" data-aos="zoom-in" data-aos-delay="100">
+                <img src="foto-chocolate.jpg" alt="Foto 1">
+                <div class="galeria-overlay">Sabor Intenso</div>
+            </div>
+            <div class="galeria-item" data-aos="zoom-in" data-aos-delay="200">
+                <img src="foto-morangos.jpg" alt="Foto 2">
+                <div class="galeria-overlay">Frescor</div>
+            </div>
+            <div class="galeria-item" data-aos="zoom-in" data-aos-delay="300">
+                <img src="foto-oreo.jpg" alt="Foto 3">
+                <div class="galeria-overlay">Irresistível</div>
+            </div>
+            <div class="galeria-item" data-aos="zoom-in" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1563729566153-9775f74cf6c1?auto=format&fit=crop&w=500&q=80" alt="Extra">
+                <div class="galeria-overlay">Artesanal</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE FEEDBACKS -->
+    <section id="feedbacks" class="feedbacks">
+        <h2 data-aos="fade-up">O que dizem nossos clientes</h2>
+        <div class="grid-feedbacks">
+            <div class="feedback-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="estrelas">★★★★★</div>
+                <p class="feedback-texto">"O melhor doce que já comi na vida! Dá para sentir o carinho em cada detalhe. Super recomendo!"</p>
+                <p class="feedback-autor">Ana Beatriz</p>
+            </div>
+            <div class="feedback-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="estrelas">★★★★★</div>
+                <p class="feedback-texto">"Encomendei para o aniversário da minha mãe e todos os convidados ficaram encantados. Maravilhoso!"</p>
+                <p class="feedback-autor">Carlos Eduardo</p>
+            </div>
+            <div class="feedback-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="estrelas">★★★★★</div>
+                <p class="feedback-texto">"Sabor equilibrado e apresentação impecável. A Cereja e Baunilha é realmente a melhor da região."</p>
+                <p class="feedback-autor">Mariana Costa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO de PAGAMENTOS -->
+    <section id="pagamentos" class="pagamentos">
+        <h3 data-aos="fade-up">Formas de Pagamento</h3>
+        <div class="metodos-container" data-aos="zoom-in">
+            <div class="metodo"><span>⚡</span> Pix</div>
+            <div class="metodo"><span>💳</span> Cartão de Crédito</div>
+            <div class="metodo"><span>💳</span> Cartão de Débito</div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+        <div class="sobre-conteudo" data-aos="fade-up">
+            <h2>Cereja & Baunilha</h2>
+            <p>"Acreditamos que a confeitaria é uma forma de afeto. Cada ingrediente é escolhido a dedo e cada detalhe é finalizado à mão, para que você sinta o carinho em cada mordida."</p>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer id="contato">
+        <div class="footer-grid">
+            <div class="contato-info">
+                <h3 style="color: var(--cor-baunilha); margin-bottom: 20px;">Visite nosso Atelier</h3>
+                <p>Sua Rua, 123 - Bairro Elegante</p>
+                <p>Cidade Linda - SP</p>
+                <p>📞 (11) 99999-9999</p>
+                <p>⏰ Terça a Sábado: 10h às 18h</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197!2d-46.65!3d-23.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjMsMzKzMCcgMTguMCJSIDQ2SBDMzAnMzAnMDAuMCIgV2!5e0!3m2!1spt-BR!2sbr!4v1600000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; opacity: 0.6; font-size: 0.8rem;">
+            &copy; 2023 Cereja & Baunilha. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP -->
+    <a href="https://api.whatsapp.com/send/?phone=5544998455061&text&type=phone_number&app_absent=0&utm_source=ig" class="whatsapp-btn" target="_blank">
+        <span>💬</span>
+    </a>
+
+    <!-- SCRIPTS DE ANIMAÇÃO (AOS) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
